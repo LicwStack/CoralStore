@@ -187,7 +187,7 @@ ApplicationWindow {
                 onClicked: {
                     //Qt.inputMethod.commit()
                     //Qt.inputMethod.hide()
-                    webView.url = utils.fromUserInput("https://www.sogou.com/")
+                    webView.url = utils.fromUserInput("https://github.com/LicwStack")
                 }
                 /*style: ButtonStyle {
                     background: Rectangle { color: "transparent" }
