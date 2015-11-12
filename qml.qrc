@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>images/left-32.png</file>
+        <file>images/right-32.png</file>
+        <file>images/categories.png</file>
+        <file>images/featured.png</file>
+        <file>images/top.png</file>
+        <file>images/updates.png</file>
+        <file>images/purchased.png</file>
+        <file>images/loading.gif</file>
+        <file>images/transparent.png</file>
+    </qresource>
+</RCC>
