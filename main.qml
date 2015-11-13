@@ -52,6 +52,9 @@ ApplicationWindow {
     y: initialY
     width: initialWidth
     height: initialHeight
+    //set minimumSize
+    minimumWidth : 1024
+    minimumHeight : 768
 
     toolBar: ToolBar {
         id: navigationBar
@@ -83,7 +86,7 @@ ApplicationWindow {
                 id: categories
                 iconSource: "images/categories.png"
                 onClicked: {
-                    webView.url = utils.fromUserInput("www.baidu.com")
+                    webView.url = utils.fromUserInput("http://app.mi.com/")
                 }
             }
 
@@ -93,7 +96,7 @@ ApplicationWindow {
                 id: top
                 iconSource: "images/top.png"
                 onClicked: {
-                    webView.url = utils.fromUserInput("http://tieba.baidu.com/")
+                    webView.url = utils.fromUserInput("http://app.mi.com/category/5")
                 }
             }
 
@@ -103,7 +106,7 @@ ApplicationWindow {
                 id: featured
                 iconSource: "images/featured.png"
                 onClicked: {
-                    webView.url = utils.fromUserInput("http://map.baidu.com/")
+                    webView.url = utils.fromUserInput("http://app.mi.com/category/2")
                 }
             }
 
@@ -113,7 +116,7 @@ ApplicationWindow {
                 id: purchased
                 iconSource: "images/purchased.png"
                 onClicked: {
-                    webView.url = utils.fromUserInput("http://v.baidu.com/")
+                    webView.url = utils.fromUserInput("http://app.mi.com/category/16")
                 }
             }
 
@@ -123,7 +126,7 @@ ApplicationWindow {
                 id: updates
                 iconSource: "images/updates.png"
                 onClicked: {
-                    webView.url = utils.fromUserInput("https://github.com/LicwStack")
+                    webView.url = utils.fromUserInput("http://app.mi.com/subjectList")
                 }
             }
         }

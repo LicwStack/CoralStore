@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     QtWebEngine::initialize();
     QCoreApplication::setApplicationVersion(QT_VERSION_STR);
-    const QString initialUrl = "https://www.baidu.com";     //initialUrl
+    const QString initialUrl = "http://app.mi.com/";     //initialUrl
 
     QQmlApplicationEngine engine;
     QQmlContext *context = engine.rootContext();
