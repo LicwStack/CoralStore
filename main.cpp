@@ -72,8 +72,6 @@ QUrl Utils::fromUserInput(const QString& userInput)
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-    QGuiApplication::setApplicationDisplayName(QCoreApplication::translate("main",
-                                                                           "Coral Store"));
 
 #ifdef QT_WEBVIEW_WEBENGINE_BACKEND
     QtWebEngine::initialize();

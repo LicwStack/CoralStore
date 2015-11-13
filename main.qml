@@ -46,168 +46,86 @@ import QtQuick.Controls.Styles 1.2
 
 
 ApplicationWindow {
+    title: qsTr("Coral Store")
     visible: true
     x: initialX
     y: initialY
     width: initialWidth
     height: initialHeight
-    //title: webView.title
 
     toolBar: ToolBar {
         id: navigationBar
         RowLayout {
-            //anchors.fill: parent
-            spacing: 0
-
             ToolButton {
                 id: backButton
-                tooltip: qsTr("Back")
                 iconSource: "images/left-32.png"
                 onClicked: webView.goBack()
                 enabled: webView.canGoBack
-                Layout.preferredWidth: navigationBar.height
-               /* style: ButtonStyle {
-                    background: Rectangle { color: "transparent" }
-                }*/
             }
 
             ToolButton {
                 id: forwardButton
-                tooltip: qsTr("Forward")
                 iconSource: "images/right-32.png"
                 onClicked: webView.goForward()
                 enabled: webView.canGoForward
-                Layout.preferredWidth: navigationBar.height
-                /*style: ButtonStyle {
-                    background: Rectangle { color: "transparent" }
-                }*/
             }
 
             ToolButton {
                 id: loading
-                //tooltip: webView.loading ? qsTr("Stop"): qsTr("Refresh")
-                //iconSource: webView.loading ? "images/stop-32.png" : "images/refresh-32.png"
-                //onClicked: webView.loading ? webView.stop() : webView.reload()
                 iconSource: webView.loading ? "images/loading.gif" : "images/transparent.png"
-                Layout.preferredWidth: navigationBar.height
-                style: ButtonStyle {
-                    background: Rectangle { color: "transparent" }
-                }
             }            
 
-          //  Item { Layout.preferredWidth: initialWidth/4 }
-/*
-            TextField {
-                Layout.fillWidth: true
-                id: urlField
-                inputMethodHints: Qt.ImhUrlCharactersOnly | Qt.ImhPreferLowercase
-                text: webView.url
-
-                onAccepted: webView.url = utils.fromUserInput(text)
-
-                ProgressBar {
-                    anchors.centerIn: parent
-                    style: LoadProgressStyle { }
-                    z: Qt.platform.os === "android" ? -1 : 1
-                    visible: webView.loading && Qt.platform.os !== "ios"
-                    minimumValue: 0
-                    maximumValue: 100
-                    value: webView.loadProgress > 100 ? 0 : webView.loadProgress
-                }
-            }
-*/
-         //   Item { Layout.preferredWidth: 5 }
+            Item { Layout.preferredWidth: 400 }
 
             ToolButton {
                 id: categories
-                
-                //text: qsTr("精选")
                 iconSource: "images/categories.png"
-                Layout.preferredWidth: navigationBar.height
                 onClicked: {
-                    //Qt.inputMethod.commit()
-                    //Qt.inputMethod.hide()
                     webView.url = utils.fromUserInput("www.baidu.com")
                 }
-                /*style: ButtonStyle {
-                    background: Rectangle { color: "transparent" }
-                }*/
             }
+
+            Item { Layout.preferredWidth: 20 }
 
             ToolButton {
                 id: top
-                //text: qsTr("排行榜")
                 iconSource: "images/top.png"
-                Layout.preferredWidth: navigationBar.height
                 onClicked: {
-                    //Qt.inputMethod.commit()
-                    //Qt.inputMethod.hide()
                     webView.url = utils.fromUserInput("http://tieba.baidu.com/")
                 }
-                style: ButtonStyle {
-                    background: Rectangle { color: "transparent" }
-                }
             }
+
+            Item { Layout.preferredWidth: 20 }
 
             ToolButton {
                 id: featured
-                //text: qsTr("类别")
                 iconSource: "images/featured.png"
-                Layout.preferredWidth: navigationBar.height
                 onClicked: {
-                    //Qt.inputMethod.commit()
-                    //Qt.inputMethod.hide()
                     webView.url = utils.fromUserInput("http://map.baidu.com/")
                 }
-                /*style: ButtonStyle {
-                    background: Rectangle { color: "transparent" }
-                }*/
             }
+
+            Item { Layout.preferredWidth: 20 }
 
             ToolButton {
                 id: purchased
-                //text: qsTr("已购项目")
                 iconSource: "images/purchased.png"
-                Layout.preferredWidth: navigationBar.height
                 onClicked: {
-                    //Qt.inputMethod.commit()
-                    //Qt.inputMethod.hide()
                     webView.url = utils.fromUserInput("http://v.baidu.com/")
                 }
-               /*style: ButtonStyle {
-                    background: Rectangle { color: "transparent" }
-                }*/
             }
+
+            Item { Layout.preferredWidth: 20 }
 
             ToolButton {
                 id: updates
-                //text: qsTr("更新")
                 iconSource: "images/updates.png"
-                Layout.preferredWidth: navigationBar.height
                 onClicked: {
-                    //Qt.inputMethod.commit()
-                    //Qt.inputMethod.hide()
                     webView.url = utils.fromUserInput("https://github.com/LicwStack")
                 }
-                /*style: ButtonStyle {
-                    background: Rectangle { color: "transparent" }
-                }*/
             }
-
-         //   Item { Layout.preferredWidth: 10 }
         }
     }
-
-    /*
-    statusBar: StatusBar {
-        id: statusBar
-        visible: webView.loading
-        RowLayout {
-            anchors.fill: parent
-            Label { text: webView.loadProgress == 100 ? qsTr("Done") : qsTr("Loading: ") + webView.loadProgress + "%" }
-        }
-    }
-    */
 
     WebView {
         id: webView
