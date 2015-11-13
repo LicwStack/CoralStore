@@ -70,11 +70,11 @@ ApplicationWindow {
                 enabled: webView.canGoForward
             }
 
-            Image {
+            AnimatedImage {
                 id: loading
-                source: {
-                    webView.loading ? "images/loading.gif" : "images/transparent.png"
-            }
+                playing: webView.loading
+                source: "images/loading.gif"
+                //source: webView.loading ? "images/loading.gif" : "images/transparent.png"
             }
 
             Item { Layout.preferredWidth: 400 }
