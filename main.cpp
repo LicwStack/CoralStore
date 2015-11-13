@@ -46,10 +46,7 @@
 #include <QScreen>
 #include <QQmlApplicationEngine>
 #include <QtQml/QQmlContext>
-
-#ifdef QT_WEBVIEW_WEBENGINE_BACKEND
 #include <QtWebEngine>
-#endif // QT_WEBVIEW_WEBENGINE_BACKEND
 
 // Workaround: As of Qt 5.4 QtQuick does not expose QUrl::fromUserInput.
 class Utils : public QObject {
@@ -72,23 +69,15 @@ QUrl Utils::fromUserInput(const QString& userInput)
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-
-#ifdef QT_WEBVIEW_WEBENGINE_BACKEND
     QtWebEngine::initialize();
-#endif // QT_WEBVIEW_WEBENGINE_BACKEND
-    QCommandLineParser parser;
     QCoreApplication::setApplicationVersion(QT_VERSION_STR);
-    parser.setApplicationDescription(QGuiApplication::applicationDisplayName());
-    parser.addHelpOption();
-    parser.addVersionOption();
-    parser.addPositionalArgument("url", "The initial URL to open.");
-    parser.process(app);
-    const QString initialUrl = parser.positionalArguments().isEmpty() ?
-        QStringLiteral("http://www.cnblogs.com/LicwStack/") : parser.positionalArguments().first();
+    const QString initialUrl = "https://www.baidu.com";     //initialUrl
 
     QQmlApplicationEngine engine;
     QQmlContext *context = engine.rootContext();
+    //go to button page
     context->setContextProperty(QStringLiteral("utils"), new Utils(&engine));
+    //init aplication start page
     context->setContextProperty(QStringLiteral("initialUrl"),
                                 Utils::fromUserInput(initialUrl));
     QRect geometry = QGuiApplication::primaryScreen()->availableGeometry();

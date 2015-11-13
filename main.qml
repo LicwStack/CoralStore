@@ -70,10 +70,12 @@ ApplicationWindow {
                 enabled: webView.canGoForward
             }
 
-            ToolButton {
+            Image {
                 id: loading
-                iconSource: webView.loading ? "images/loading.gif" : "images/transparent.png"
-            }            
+                source: {
+                    webView.loading ? "images/loading.gif" : "images/transparent.png"
+            }
+            }
 
             Item { Layout.preferredWidth: 400 }
 
